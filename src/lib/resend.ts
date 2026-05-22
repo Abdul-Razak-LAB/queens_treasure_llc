@@ -1,6 +1,9 @@
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+function createResendClient() {
+  if (!process.env.RESEND_API_KEY) return null;
+  return new Resend(process.env.RESEND_API_KEY);
+}
 
 export async function sendOrderEmail(params: {
   to: string;
@@ -10,6 +13,9 @@ export async function sendOrderEmail(params: {
   if (!process.env.RESEND_API_KEY || !process.env.RESEND_FROM_EMAIL) {
     return { skipped: true };
   }
+
+  const resend = createResendClient();
+  if (!resend) return { skipped: true };
 
   return resend.emails.send({
     from: process.env.RESEND_FROM_EMAIL,
@@ -27,6 +33,9 @@ export async function sendOrderSms(params: {
   if (!process.env.RESEND_API_KEY || !process.env.RESEND_SMS_FROM || !params.to) {
     return { skipped: true };
   }
+
+  const resend = createResendClient();
+  if (!resend) return { skipped: true };
 
   // Uses Resend SMS endpoint conventions. Adjust payload fields if provider API changes.
   return resend.batch.send([
