@@ -1,0 +1,21 @@
+<svg width="520" height="360" viewBox="0 0 520 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Plantain chips product card image">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#5f3e16"/>
+      <stop offset="1" stop-color="#1c160d"/>
+    </linearGradient>
+    <linearGradient id="bag" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f3c63e"/>
+      <stop offset="1" stop-color="#d99a20"/>
+    </linearGradient>
+  </defs>
+  <rect width="520" height="360" fill="url(#bg)"/>
+  <ellipse cx="190" cy="222" rx="120" ry="66" fill="#24170d"/>
+  <ellipse cx="190" cy="216" rx="100" ry="48" fill="#a66f2f"/>
+  <circle cx="165" cy="205" r="18" fill="#e3b25e"/>
+  <circle cx="197" cy="226" r="16" fill="#d7a34d"/>
+  <circle cx="220" cy="197" r="17" fill="#e8bc6a"/>
+  <rect x="342" y="38" width="136" height="278" rx="14" fill="url(#bag)" stroke="#e8bc64" stroke-width="5"/>
+  <text x="410" y="130" text-anchor="middle" fill="#1f4028" font-size="35" font-weight="700" font-family="Georgia, serif">PLANTAIN</text>
+  <text x="410" y="163" text-anchor="middle" fill="#1f4028" font-size="35" font-weight="700" font-family="Georgia, serif">CHIPS</text>
+</svg>

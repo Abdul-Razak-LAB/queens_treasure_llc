@@ -1,0 +1,14 @@
+<svg width="420" height="140" viewBox="0 0 420 140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Queen's Treasure logo">
+  <g fill="none" fill-rule="evenodd">
+    <g transform="translate(170 8)">
+      <path d="M80 45H10l11-14 16 10 12-28 12 25 19-13z" fill="#E0B24B"/>
+      <circle cx="10" cy="35" r="5" fill="#E0B24B"/>
+      <circle cx="80" cy="35" r="5" fill="#E0B24B"/>
+      <circle cx="38" cy="10" r="5" fill="#E0B24B"/>
+      <circle cx="59" cy="20" r="5" fill="#E0B24B"/>
+    </g>
+    <text x="210" y="76" text-anchor="middle" font-size="45" font-family="Georgia, 'Times New Roman', serif" font-weight="700" fill="#FFFFFF">Queen's</text>
+    <text x="210" y="114" text-anchor="middle" font-size="49" font-family="Georgia, 'Times New Roman', serif" font-weight="700" fill="#FFFFFF">Treasure</text>
+    <text x="210" y="134" text-anchor="middle" font-size="12" font-family="Arial, Helvetica, sans-serif" font-weight="700" letter-spacing="2.4" fill="#C49A3A">AUTHENTIC AFRICAN FLAVORS</text>
+  </g>
+</svg>

@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+body {
+  @apply bg-[#f3eddc] text-brandBlack antialiased;
+  font-family: var(--font-body), "Segoe UI", sans-serif;
+  min-height: 100vh;
+}
+
+a {
+  @apply transition-colors;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display), Georgia, serif;
+  letter-spacing: -0.015em;
+}
+
+.container-px {
+  @apply mx-auto w-full max-w-6xl px-4 md:px-6;
+}
+
+.btn-primary {
+  @apply inline-flex items-center justify-center rounded-md bg-[#d6a122] px-5 py-2.5 text-sm font-bold uppercase tracking-[0.06em] text-black hover:bg-[#e0b23f];
+}
+
+.btn-secondary {
+  @apply inline-flex items-center justify-center rounded-md border border-brandGold px-5 py-2.5 text-sm font-bold uppercase tracking-[0.06em] text-brandGold hover:bg-brandGold hover:text-black;
+}
+
+.home-wrap {
+  background: linear-gradient(180deg, #f4efdf 0%, #f2ebd9 100%);
+}
+
+.qt-shell {
+  margin: 0 auto;
+  max-width: 1240px;
+  overflow: hidden;
+  border: 1px solid #d6ccb0;
+  border-top: 0;
+  background: #f8f4e7;
+}
+
+.qt-section {
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .qt-section {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+.gold-divider {
+  background-image: linear-gradient(90deg, transparent, #d9ac45, transparent);
+  height: 1px;
+}

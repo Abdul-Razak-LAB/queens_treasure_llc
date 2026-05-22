@@ -1,0 +1,16 @@
+<svg width="520" height="360" viewBox="0 0 520 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Shito product card image">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#22130c"/>
+      <stop offset="1" stop-color="#0f0f0f"/>
+    </linearGradient>
+  </defs>
+  <rect width="520" height="360" fill="url(#bg)"/>
+  <ellipse cx="140" cy="222" rx="120" ry="68" fill="#2c2018"/>
+  <ellipse cx="140" cy="216" rx="104" ry="52" fill="#4d1f0d"/>
+  <circle cx="115" cy="205" r="12" fill="#cc7a34"/>
+  <circle cx="153" cy="235" r="14" fill="#d38a49"/>
+  <rect x="280" y="58" width="170" height="246" rx="14" fill="#171717" stroke="#3f3f3f" stroke-width="5"/>
+  <text x="365" y="156" text-anchor="middle" fill="#e4ac39" font-size="47" font-weight="700" font-family="Georgia, serif">SHITO</text>
+  <text x="365" y="192" text-anchor="middle" fill="#e7d7a4" font-size="16" font-weight="700" font-family="Arial, sans-serif">HOT PEPPER RELISH</text>
+</svg>

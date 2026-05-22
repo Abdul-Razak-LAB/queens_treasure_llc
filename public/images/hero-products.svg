@@ -1,0 +1,32 @@
+<svg width="840" height="560" viewBox="0 0 840 560" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Queens Treasure hero products">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#102e20"/>
+      <stop offset="1" stop-color="#06150f"/>
+    </linearGradient>
+    <linearGradient id="koko" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#114b2a"/>
+      <stop offset="1" stop-color="#0b2f1b"/>
+    </linearGradient>
+    <linearGradient id="chips" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f4bf2c"/>
+      <stop offset="1" stop-color="#d79617"/>
+    </linearGradient>
+  </defs>
+  <rect width="840" height="560" fill="url(#bg)"/>
+  <circle cx="120" cy="80" r="90" fill="#234d37" opacity="0.4"/>
+  <circle cx="720" cy="70" r="120" fill="#d6a834" opacity="0.17"/>
+  <rect x="310" y="94" width="190" height="410" rx="16" fill="url(#koko)" stroke="#d8ac45" stroke-width="6"/>
+  <rect x="350" y="72" width="112" height="30" rx="6" fill="#d8ac45"/>
+  <text x="405" y="205" text-anchor="middle" fill="#f5f0de" font-size="55" font-weight="700" font-family="Georgia, serif">KOKO</text>
+  <text x="405" y="247" text-anchor="middle" fill="#f4d784" font-size="24" font-weight="600" font-family="Arial, sans-serif">100% MILLET</text>
+  <rect x="502" y="190" width="148" height="285" rx="12" fill="#181818" stroke="#454545" stroke-width="4"/>
+  <ellipse cx="576" cy="250" rx="58" ry="30" fill="#2f2f2f"/>
+  <text x="576" y="265" text-anchor="middle" fill="#e1ad39" font-size="48" font-weight="700" font-family="Georgia, serif">SHITO</text>
+  <rect x="640" y="120" width="145" height="360" rx="16" fill="url(#chips)" stroke="#e2b85d" stroke-width="4"/>
+  <text x="712" y="230" text-anchor="middle" fill="#204027" font-size="41" font-weight="700" font-family="Georgia, serif">PLANTAIN</text>
+  <text x="712" y="272" text-anchor="middle" fill="#204027" font-size="41" font-weight="700" font-family="Georgia, serif">CHIPS</text>
+  <ellipse cx="220" cy="470" rx="130" ry="40" fill="#1e0f08"/>
+  <ellipse cx="220" cy="454" rx="118" ry="30" fill="#6e4925"/>
+  <ellipse cx="220" cy="450" rx="103" ry="23" fill="#b58649"/>
+</svg>
