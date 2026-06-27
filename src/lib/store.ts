@@ -18,27 +18,41 @@ export async function getProducts() {
       return fallbackProducts;
     }
 
-    return products.map((p) => ({
-      id: p.id,
-      slug: p.slug,
-      name: p.name,
-      shortDescription: p.shortDescription,
-      longDescription: p.longDescription,
-      category: p.category,
-      basePriceCents: p.basePriceCents,
-      imageUrl: p.imageUrl ?? undefined,
-      tags: p.tags.map((tag) => tag.tag),
-      ingredients: p.ingredients.map((ingredient) => ingredient.name),
-      servingSize: p.nutrition?.servingSize ?? "",
-      calories: p.nutrition?.calories ?? 0,
-      variants: p.variants.map((variant) => ({
-        id: variant.id,
-        label: variant.label,
-        size: variant.size,
-        priceCents: variant.priceCents,
-        sku: variant.sku
-      }))
-    }));
+    const fallbackBySlug = new Map(fallbackProducts.map((product) => [product.slug, product]));
+
+    const dbProducts = products.map((p) => {
+      const fallbackProduct = fallbackBySlug.get(p.slug);
+      const imageUrl = p.imageUrl ?? fallbackProduct?.imageUrl;
+
+      return {
+        id: p.id,
+        slug: p.slug,
+        name: p.name,
+        shortDescription: p.shortDescription,
+        longDescription: p.longDescription,
+        category: p.category,
+        basePriceCents: p.basePriceCents,
+        imageUrl,
+        imageUrls: imageUrl ? [imageUrl] : fallbackProduct?.imageUrls,
+        tags: p.tags.map((tag) => tag.tag),
+        ingredients: p.ingredients.map((ingredient) => ingredient.name),
+        servingSize: p.nutrition?.servingSize ?? "",
+        calories: p.nutrition?.calories ?? 0,
+        variants: p.variants.map((variant) => ({
+          id: variant.id,
+          label: variant.label,
+          size: variant.size,
+          priceCents: variant.priceCents,
+          sku: variant.sku
+        }))
+      };
+    });
+
+    for (const dbProduct of dbProducts) {
+      fallbackBySlug.set(dbProduct.slug, dbProduct);
+    }
+
+    return Array.from(fallbackBySlug.values());
   } catch {
     return fallbackProducts;
   }

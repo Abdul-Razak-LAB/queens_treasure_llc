@@ -1,5 +1,8 @@
 import { faqJsonLd } from "@/lib/seo";
 
+const SALES_PHONE_DISPLAY = "(860) 629-0367";
+const SALES_PHONE_E164 = "+18606290367";
+
 const shippingFaqs = [
   {
     question: "How long does shipping take?",
@@ -70,7 +73,8 @@ export default function FaqPage() {
 
           <div className="mt-8 space-y-3 md:flex md:items-center md:justify-center md:gap-3 md:space-y-0">
             <a
-              href="tel:+18606290367"
+              href={`tel:${SALES_PHONE_E164}`}
+              aria-label={`Call Sales ${SALES_PHONE_DISPLAY}`}
               className="flex h-16 items-center justify-center gap-3 rounded-2xl border border-white/10 bg-[#0a1f34] px-6 text-xl font-bold text-white transition-colors hover:border-white/20 hover:bg-[#102842] md:min-w-[200px]"
             >
               <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
@@ -91,7 +95,7 @@ export default function FaqPage() {
             </a>
 
             <a
-              href="https://wa.me/18606290367"
+              href={`https://wa.me/${SALES_PHONE_E164.replace("+", "")}`}
               target="_blank"
               rel="noreferrer"
               className="flex h-16 items-center justify-center gap-3 rounded-2xl bg-[#08a66d] px-6 text-xl font-bold text-black transition-colors hover:bg-[#1abd82] md:min-w-[190px]"

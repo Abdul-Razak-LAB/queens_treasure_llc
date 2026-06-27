@@ -1,17 +1,12 @@
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { AddToCartButton } from "@/components/add-to-cart";
+import { getProductImageBySlug } from "@/lib/product-images";
 import { getProductBySlug } from "@/lib/store";
 import { formatPrice } from "@/lib/utils";
 import { productJsonLd } from "@/lib/seo";
 
 type Props = { params: Promise<{ slug: string }> };
-
-const productImageBySlug: Record<string, string> = {
-  koko: "/images/koko.png",
-  shito: "/images/shito.png",
-  "plantain-chips": "/images/plantain.jpeg"
-};
 
 const usageBySlug: Record<string, string[]> = {
   koko: [
@@ -32,9 +27,24 @@ const usageBySlug: Record<string, string[]> = {
 };
 
 const productReviews = [
-  { name: "Amaka S.", quote: "Authentic taste and amazing quality every time.", image: "/images/avatar-1.svg" },
-  { name: "Kojo B.", quote: "The flavor is bold and memorable. My family loves it.", image: "/images/avatar-2.svg" },
-  { name: "Jasmine R.", quote: "Fresh, delicious, and beautifully packaged.", image: "/images/avatar-3.svg" }
+  {
+    name: "Amaka S.",
+    quote: "Authentic taste and amazing quality every time.",
+    image: "/assets/bankuflour.png",
+    imagePosition: "70% 16%"
+  },
+  {
+    name: "Kojo B.",
+    quote: "The flavor is bold and memorable. My family loves it.",
+    image: "/assets/platain.png",
+    imagePosition: "72% 17%"
+  },
+  {
+    name: "Jasmine R.",
+    quote: "Fresh, delicious, and beautifully packaged.",
+    image: "/images/about-banner1.png",
+    imagePosition: "86% 22%"
+  }
 ];
 
 export async function generateMetadata({ params }: Props) {
@@ -54,11 +64,12 @@ export default async function ProductPage({ params }: Props) {
   if (!product) return notFound();
 
   const defaultVariant = product.variants[0];
-  const imageSrc = productImageBySlug[product.slug] ?? "/images/koko.png";
+  const imageSrc = product.imageUrl ?? getProductImageBySlug(product.slug);
   const usageSteps = usageBySlug[product.slug] ?? ["Serve and enjoy."];
   const schema = productJsonLd({
     name: product.name,
     description: product.longDescription,
+    image: imageSrc,
     price: defaultVariant?.priceCents ?? product.basePriceCents,
     slug: product.slug
   });
@@ -118,7 +129,14 @@ export default async function ProductPage({ params }: Props) {
           {productReviews.map((review) => (
             <article key={review.name} className="rounded-xl border border-black/10 bg-[#f8f2e3] p-4">
               <div className="flex items-start gap-3">
-                <Image src={review.image} alt={review.name} width={46} height={46} className="h-11 w-11 rounded-full" />
+                <Image
+                  src={review.image}
+                  alt={review.name}
+                  width={46}
+                  height={46}
+                  className="h-11 w-11 rounded-full object-cover"
+                  style={{ objectPosition: review.imagePosition }}
+                />
                 <div>
                   <p className="text-sm text-black/80">&quot;{review.quote}&quot;</p>
                   <p className="mt-2 text-sm font-semibold text-brandGreen">- {review.name}</p>

@@ -19,7 +19,7 @@ export function SiteHeader() {
 
   return (
     <>
-      <header className="fixed left-0 right-0 top-0 z-[110] border-b border-[#1a3525] bg-[#071f16]/95 backdrop-blur-md">
+      <header className="fixed left-0 right-0 top-0 z-[110] border-b border-white/70 bg-white/55 backdrop-blur-xl">
         <div className="mx-auto flex h-20 w-full max-w-[1240px] items-center justify-between px-4 md:px-8">
           <Link href="/" className="block" onClick={() => setIsOpen(false)} aria-label="Queen's Treasure Home">
             <Image
@@ -32,33 +32,33 @@ export function SiteHeader() {
             />
           </Link>
           <nav className="hidden items-center gap-8 md:flex">
-            <Link href="/" className="border-b-2 border-brandGold pb-1 text-xs font-bold uppercase tracking-[0.1em] text-white">
+            <Link href="/" className="border-b-2 border-brandGold pb-1 text-xs font-bold uppercase tracking-[0.1em] text-[#173725]">
               Home
             </Link>
             {nav.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className="pb-1 text-xs font-bold uppercase tracking-[0.1em] text-white/85 hover:text-brandGold"
+                className="pb-1 text-xs font-bold uppercase tracking-[0.1em] text-[#173725]/85 hover:text-brandGold"
               >
                 {item.label}
               </Link>
             ))}
           </nav>
-          <div className="flex items-center gap-4 text-white">
-            <Link href="/shop" className="hidden text-white/80 hover:text-brandGold md:block" aria-label="Search">
+          <div className="flex items-center gap-4 text-[#173725]">
+            <Link href="/shop" className="hidden text-[#173725]/80 hover:text-brandGold md:block" aria-label="Search">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
                 <circle cx="11" cy="11" r="7" />
                 <line x1="16.65" y1="16.65" x2="22" y2="22" />
               </svg>
             </Link>
-            <Link href="/account" className="text-white/80 hover:text-brandGold" aria-label="Account">
+            <Link href="/account" className="text-[#173725]/80 hover:text-brandGold" aria-label="Account">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
                 <path d="M20 21a8 8 0 0 0-16 0" />
                 <circle cx="12" cy="7" r="4" />
               </svg>
             </Link>
-            <Link href="/cart" className="relative text-white/80 hover:text-brandGold" aria-label="Cart">
+            <Link href="/cart" className="relative text-[#173725]/80 hover:text-brandGold" aria-label="Cart">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
                 <circle cx="9" cy="21" r="1" />
                 <circle cx="20" cy="21" r="1" />
@@ -73,7 +73,7 @@ export function SiteHeader() {
               aria-label="Toggle menu"
               aria-expanded={isOpen}
               onClick={() => setIsOpen((value) => !value)}
-              className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-white/25 text-white/90 hover:border-brandGold hover:text-brandGold md:hidden"
+              className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-[#173725]/25 text-[#173725]/90 hover:border-brandGold hover:text-brandGold md:hidden"
             >
               {isOpen ? (
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
@@ -93,14 +93,14 @@ export function SiteHeader() {
       </header>
 
       {isOpen && (
-        <div className="fixed left-0 right-0 top-20 z-[105] border-b border-[#1a3525] bg-[#071f16] px-4 py-3 shadow-2xl md:hidden">
+        <div className="fixed left-0 right-0 top-20 z-[105] border-b border-white/70 bg-white/72 px-4 py-3 shadow-[0_22px_40px_rgba(14,35,26,0.14)] backdrop-blur-xl md:hidden">
           <nav className="mx-auto flex w-full max-w-[1240px] flex-col">
             {mobileNav.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
                 onClick={() => setIsOpen(false)}
-                className="border-b border-white/15 py-3 text-sm font-semibold uppercase tracking-[0.08em] text-white hover:text-brandGold"
+                className="border-b border-[#173725]/15 py-3 text-sm font-semibold uppercase tracking-[0.08em] text-[#173725] hover:text-brandGold"
               >
                 {item.label}
               </Link>

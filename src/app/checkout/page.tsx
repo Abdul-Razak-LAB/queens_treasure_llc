@@ -11,34 +11,44 @@ export default function CheckoutPage() {
     setLoading(true);
     setMessage("");
 
-    const form = new FormData(event.currentTarget);
+    try {
+      const form = new FormData(event.currentTarget);
 
-    const response = await fetch("/api/checkout", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        email: form.get("email"),
-        phone: form.get("phone"),
-        shippingAddress: {
-          line1: form.get("line1"),
-          city: form.get("city"),
-          state: form.get("state"),
-          postalCode: form.get("postalCode"),
-          country: "US"
+      const response = await fetch("/api/checkout", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          email: form.get("email"),
+          phone: form.get("phone"),
+          shippingAddress: {
+            line1: form.get("line1"),
+            city: form.get("city"),
+            state: form.get("state"),
+            postalCode: form.get("postalCode"),
+            country: "US"
+          }
+        })
+      });
+
+      const data = await response.json().catch(() => ({}));
+
+      if (response.ok) {
+        if (typeof data.checkoutUrl === "string" && data.checkoutUrl.length > 0) {
+          window.location.assign(data.checkoutUrl);
+          return;
         }
-      })
-    });
 
-    const data = await response.json();
-    setLoading(false);
+        setMessage(`Order ${data.orderId} created. Confirmation email/SMS queued.`);
+        event.currentTarget.reset();
+        return;
+      }
 
-    if (response.ok) {
-      setMessage(`Order ${data.orderId} created. Confirmation email/SMS queued.`);
-      event.currentTarget.reset();
-      return;
+      setMessage(data.error ?? "Checkout failed");
+    } catch {
+      setMessage("Checkout request failed. Please try again.");
+    } finally {
+      setLoading(false);
     }
-
-    setMessage(data.error ?? "Checkout failed");
   }
 
   return (

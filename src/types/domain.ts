@@ -1,4 +1,4 @@
-export type ProductCategory = "BREAKFAST" | "CONDIMENT" | "SNACK" | "BUNDLE";
+export type ProductCategory = "BREAKFAST" | "LUNCH" | "CONDIMENT" | "SNACK" | "BUNDLE";
 
 export type Product = {
   id: string;
@@ -9,6 +9,7 @@ export type Product = {
   category: ProductCategory;
   basePriceCents: number;
   imageUrl?: string;
+  imageUrls?: string[];
   tags: string[];
   ingredients: string[];
   servingSize: string;

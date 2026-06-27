@@ -14,6 +14,7 @@ async function main() {
         "Traditional African spiced millet cereal delivering warmth, flavor, and nourishment in every bowl.",
       category: ProductCategory.BREAKFAST,
       basePriceCents: 1299,
+      imageUrl: "/assets/koko.jpeg",
       tags: {
         create: [
           { tag: "No Preservatives" },
@@ -58,6 +59,7 @@ async function main() {
         "Small-batch slow cooked hot pepper relish made with onion, fish, shrimp, ginger, and chili pepper.",
       category: ProductCategory.CONDIMENT,
       basePriceCents: 1499,
+      imageUrl: "/assets/hot%20pepper%20beef%20relish.jpeg",
       tags: {
         create: [{ tag: "Small Batch" }, { tag: "Made with Real Seafood" }]
       },
@@ -103,6 +105,7 @@ async function main() {
         "Crispy, bold hot pepper plantain chips made from selected green plantains and classic spice blend.",
       category: ProductCategory.SNACK,
       basePriceCents: 699,
+      imageUrl: "/assets/plantain%20chips%20hot%20pepper.jpeg",
       tags: {
         create: [
           { tag: "Made with Real Plantains" },

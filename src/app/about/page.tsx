@@ -1,4 +1,5 @@
 import Image from "next/image";
+import aboutUsHero from "../../../assets/about us.png";
 
 export const metadata = { title: "About | Queens Treasure" };
 
@@ -7,10 +8,10 @@ export default function AboutPage() {
     <div className="mx-auto w-full max-w-6xl px-4 py-8 md:px-6 md:py-12">
       <section className="overflow-hidden rounded-2xl border border-[#214632] shadow-xl">
         <Image
-          src="/images/about-banner1.png"
+          src={aboutUsHero}
           alt="Queen's Treasure about banner"
-          width={1800}
-          height={700}
+          width={1536}
+          height={864}
           priority
           className="h-auto w-full"
         />
@@ -44,21 +45,21 @@ export default function AboutPage() {
           <div className="overflow-hidden rounded-2xl border border-brandGold/45 bg-[#102f21] p-3 shadow-sm">
             <div className="grid grid-cols-3 gap-2">
               <Image
-                src="/images/koko.png"
+                src="/assets/koko.jpeg"
                 alt="Koko product"
                 width={260}
                 height={180}
                 className="h-24 w-full rounded-lg bg-[#f0e7d0] object-contain p-1"
               />
               <Image
-                src="/images/shito.png"
+                src="/assets/hot%20pepper%20beef%20relish.jpeg"
                 alt="Shito product"
                 width={260}
                 height={180}
                 className="h-24 w-full rounded-lg bg-[#151515] object-contain p-1"
               />
               <Image
-                src="/images/plantain.jpeg"
+                src="/assets/plantain%20chips%20hot%20pepper.jpeg"
                 alt="Plantain chips product"
                 width={260}
                 height={180}

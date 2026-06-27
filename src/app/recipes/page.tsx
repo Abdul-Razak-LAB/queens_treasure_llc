@@ -1,29 +1,31 @@
 import Image from "next/image";
 import Link from "next/link";
+import { fallbackProducts } from "@/lib/products";
 
-const recipes = [
-  {
-    title: "Classic Koko Breakfast Bowl",
-    body: "Cook Koko with warm water and sweeten lightly. Top with fruit and nuts.",
-    time: "10 mins",
-    image: "/images/koko.png",
-    tag: "Breakfast"
-  },
-  {
-    title: "Shito Rice Bowl",
-    body: "Add a spoonful of Shito to rice, eggs, and avocado for a savory kick.",
-    time: "15 mins",
-    image: "/images/shito.png",
-    tag: "Lunch"
-  },
-  {
-    title: "Plantain Chips Party Mix",
-    body: "Mix chips with roasted peanuts and dried mango for a spicy-sweet snack.",
-    time: "8 mins",
-    image: "/images/plantain.jpeg",
-    tag: "Snack"
-  }
-];
+const categoryTime: Record<string, string> = {
+  BREAKFAST: "10 mins",
+  LUNCH: "15 mins",
+  CONDIMENT: "12 mins",
+  SNACK: "8 mins",
+  BUNDLE: "20 mins"
+};
+
+const categoryBody: Record<string, string> = {
+  BREAKFAST: "Prepare warm and serve with your favorite sides for a nourishing start.",
+  LUNCH: "Pair with your favorite proteins and vegetables for a satisfying lunch plate.",
+  CONDIMENT: "Add a spoonful while cooking or as a finishing touch for bold flavor.",
+  SNACK: "Enjoy straight from the pack or combine with nuts and fruit for a quick bite.",
+  BUNDLE: "Mix and match items in this bundle to create a complete meal experience."
+};
+
+const recipes = fallbackProducts.map((product) => ({
+  slug: product.slug,
+  title: `${product.name} Recipe Idea`,
+  body: categoryBody[product.category] ?? "Serve and enjoy with your favorite meal pairing.",
+  time: categoryTime[product.category] ?? "10 mins",
+  image: product.imageUrl ?? "/assets/koko.jpeg",
+  tag: product.category.charAt(0) + product.category.slice(1).toLowerCase()
+}));
 
 const tips = [
   "Start with small portions of Shito and adjust to your preferred heat.",
@@ -51,7 +53,7 @@ export default function RecipesPage() {
           <p className="text-sm text-black/65">Easy steps. Bold flavor. Everyday meals.</p>
         </div>
 
-        <div className="mt-5 grid gap-4 md:grid-cols-3">
+        <div className="mt-5 grid gap-4 md:grid-cols-3 xl:grid-cols-4">
           {recipes.map((recipe) => (
             <article key={recipe.title} className="overflow-hidden rounded-xl border border-black/10 bg-[#faf5e7]">
               <div className="relative border-b border-black/10 bg-[#efe4ca] p-2">
@@ -67,7 +69,7 @@ export default function RecipesPage() {
                   <span className="text-xs font-semibold uppercase tracking-[0.08em] text-brandSpice">{recipe.time}</span>
                 </div>
                 <p className="mt-2 text-sm text-black/70">{recipe.body}</p>
-                <Link href="/contact" className="mt-3 inline-flex text-sm font-semibold text-brandGreen hover:text-brandSpice">
+                <Link href={`/recipes/${recipe.slug}`} className="mt-3 inline-flex text-sm font-semibold text-brandGreen hover:text-brandSpice">
                   Get Cooking Tips
                 </Link>
               </div>
@@ -77,7 +79,7 @@ export default function RecipesPage() {
       </section>
 
       <section className="mt-5 grid gap-5 md:grid-cols-[1.2fr_0.8fr]">
-        <article className="rounded-2xl border border-black/10 bg-white/80 p-5 shadow-sm md:p-6">
+        <article id="home-cooking-tips" className="rounded-2xl border border-black/10 bg-white/80 p-5 shadow-sm md:p-6">
           <h2 className="text-3xl font-black text-brandGreen">Home Cooking Tips</h2>
           <ul className="mt-4 space-y-3 text-sm text-black/75 md:text-base">
             {tips.map((tip) => (
